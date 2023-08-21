@@ -1,5 +1,5 @@
 '''
-This script renames .MP3 files to .mp3 and converts .wma and .acc files to .wav.
+This script renames .MP3 files to .mp3 and converts .wma and .aac files to .wav.
 '''
 
 import os
@@ -11,7 +11,7 @@ def convert_audio(input_path, output_path, format):
     audio.export(output_path, format=format)
 
 
-input_dir = 'input'
+input_dir = 'none_mp3'
 output_dir = 'output'
 os.makedirs(output_dir, exist_ok=True)
 
@@ -30,8 +30,8 @@ for file_name in os.listdir(input_dir):
         output_path = os.path.join(output_dir, file_name[:-4] + ".wav")
         convert_audio(file_path, output_path, "wav")
     
-    # Convert .acc to .wav
-    elif file_name.endswith(".acc"):
+    # Convert .aac to .wav
+    elif file_name.endswith(".aac"):
         output_path = os.path.join(output_dir, file_name[:-4] + ".wav")
         convert_audio(file_path, output_path, "wav")
 
